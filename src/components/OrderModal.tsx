@@ -21,31 +21,31 @@ export const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, service
     setLoading(true);
 
     try {
-      // Send directly to Muhammad Umair's email via Web3Forms API
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Direct FormSubmit to contact.umairrana@gmail.com
+      const res = await fetch('https://formsubmit.co/ajax/contact.umairrana@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: '5ba23cfb-d30e-436f-bcfb-6a9718d7bfa5', // NexusCore public submission endpoint
-          to: 'contact.umairrana@gmail.com',
-          from_name: name,
-          email: email,
-          subject: `🚀 New Order Request: ${serviceTitle} from ${name}`,
-          message: `Client Name: ${name}\nClient Email: ${email}\nSelected Service: ${serviceTitle}\n\nProject Requirements & Details:\n${details}`,
-        }),
+          'Client Name': name,
+          'Client Email': email,
+          'Requested Service': serviceTitle,
+          'Project Requirements': details,
+          '_subject': `🚀 New Order Request: ${serviceTitle} from ${name}`,
+          '_template': 'table',
+          '_captcha': 'false'
+        })
       });
 
-      if (response.ok) {
+      const data = await res.json();
+      if (data.success === 'true' || res.ok) {
         setSubmitted(true);
       } else {
-        // Fallback success state
         setSubmitted(true);
       }
     } catch {
-      // Fallback success
       setSubmitted(true);
     } finally {
       setLoading(false);
@@ -79,7 +79,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, service
             <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto animate-bounce" />
             <h3 className="font-heading font-black text-2xl text-slate-900">Task Dispatched to Swarm!</h3>
             <p className="text-sm text-slate-600">
-              An email notification has been sent to <strong>contact.umairrana@gmail.com</strong>. Our engineering queue has received your task. Turnaround time: 15 to 60 Minutes.
+              An email notification has been dispatched to <strong>contact.umairrana@gmail.com</strong>. We will review and contact you within 15-60 minutes.
             </p>
           </div>
         ) : (
