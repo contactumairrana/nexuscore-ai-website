@@ -18,7 +18,7 @@ export function App() {
     setIsModalOpen(true);
   };
 
-  const whatsappDirectUrl = "https://wa.me/924144226718?text=" + encodeURIComponent("Hello Muhammad Umair (NexusCore AI Labs), I need a fast engineering task/consultation.");
+  const whatsappDirectUrl = "https://wa.me/923144226718?text=" + encodeURIComponent("Hello Muhammad Umair (NexusCore AI Labs), I need a fast engineering task/consultation.");
 
   return (
     <div className="min-h-screen flex flex-col justify-between relative">

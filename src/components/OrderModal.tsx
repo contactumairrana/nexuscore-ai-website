@@ -104,7 +104,7 @@ export const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose, service
               </button>
 
               <a
-                href={`https://wa.me/924144226718?text=${whatsappMessage}`}
+                href={`https://wa.me/923144226718?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm py-3 rounded-xl shadow transition-all flex items-center justify-center gap-2 text-center"
